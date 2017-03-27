@@ -1,0 +1,9 @@
+aws:
+  access_key_id     : 'AKXXXXXXXXXXXXXXX'
+  secret_access_key : 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+  # Specify SSH keypair name to use (don't include file extension)
+  keypair_name      : 'NAME'
+  # absolute path to and including keypair file name
+  pemfile           : '/path/MY_PEM_FILE.pem'
+  instance_name     : 'AWS Staging'
+  instance_desc     : 'AWS Ubuntu Staging Server'
