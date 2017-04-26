@@ -20,6 +20,17 @@ Instructions
 * Use the AWS EC2 console to see your instance details and do AWS stuff (it's also fun to watch and see the instance getting made/initialised/destroyed)
 * If you don't get quite what you want, just run `vagrant destroy -f` to shut down and remove the instance, then modify the options files and run `vagrant up` again.  This is one of the neat things about running VMs this way; it's quick and easy to make changes and start again
 
+Wordmove
+========
+
+Wordmove is a very nice (Ruby gem) tool for copying WordPress sites between different environments:  https://github.com/welaika/wordmove  
+You install Wordmove in your _local_ environment, not the remote, so this Vagrant setup does not need to install it in your remote AWS site, but it does provide a starter `Movefile`, with values that are nearly ready to go.  
+The values assume you're using VVV locally.  
+Once you have installed Wordmove in your local environment, and setup your AWS site, copy this Movefile into the root folder of the WordPress install you want to push/pull, then update the values.
+
+Note: if you are using VVV (with ruby 2.4), you need to run `rvm group add rvm "$USER"` in VVV (after `vagrant ssh`) then log out of the shell session and back in again _before_ installing Wordmove.  
+If you get an error something like "sql_adapter.rb:44:in 'gsub!': invalid byte sequence in US-ASCII", edit your .profile file as described in the Wordmove wiki: https://github.com/welaika/wordmove/wiki/invalid-byte-sequence-in-UTF-8-while-pushing---pulling-db
+
 Extending
 =========
 
