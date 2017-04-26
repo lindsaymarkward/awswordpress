@@ -14,5 +14,8 @@ WP_DIRECTORY=''
 WP_TITLE='New Site Title'
 # database, user and user's DB password to be created for WordPress
 WP_DATABASE='wpdb'
-WP_DBUSER='wpdbuser'
-WP_DBUSER_PASSWORD='wpdbpassword'
+WP_DB_USER='wpdbuser'
+WP_DB_USER_PASSWORD='wpdbpassword'
+# WordPress admin user name and password
+WP_ADMIN_USER='admin'
+WP_ADMIN_PASSWORD='password'

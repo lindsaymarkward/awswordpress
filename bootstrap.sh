@@ -5,8 +5,6 @@
 # load variables from config file
 source /vagrant/config.sh
 
-# TODO: based on customisations, copy public key (using AWS key) to server (id_rsa key in shared directory??)
-
 # set locale (Australian English), useful to do first for some installs (might help prevent error messages)
 sudo locale-gen en_AU.UTF-8
 

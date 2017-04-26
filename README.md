@@ -6,16 +6,19 @@ The assumption is that you'll replace the site with one that you develop locally
 Instructions
 ============
 
-* (Outside the scope of these instructions) Get your AWS account setup with appropriate security credentials including a local key pair "pemfile" and secret access key/id...  Make sure you can connect to AWS manually before continuing...
-
+* (Outside the scope of these instructions) Get your AWS account setup with appropriate security credentials including a local key pair "pemfile" and secret access key/id...  Make sure you can connect to AWS in the shell (command line) before continuing... AWS have an "AWS Educate Starter Account" that does not require a credit card, or use a standard account and apply for a student deal: https://aws.amazon.com/education/awseducate
+* **AWS:** You need to set up your default security group (or another one if you change that in the Vagrantfile) so that it allows inbound traffic
+* Install AWS Vagrant plugin: `vagrant plugin install aws-vagrant plugin`
+* Download the dummy box: `vagrant box add dummy https://github.com/mitchellh/vagrant-aws/raw/master/dummy.box`
+* **Windows:** There may be some other setup required for Windows, including making sure `rsync` is available
 * Copy or rename the `private-sample.yml` file to `private.yml`
-* Replace the values in that file with your AWS security credentials & what you want to call the instance
+* Replace the values in that file with your AWS security credentials & what you want to call the instance in AWS
 * Edit the `config.sh` file, replacing any values you want to change (defaults here work, but passwords are not strong)
 * Run `vagrant up` in the directory for this project. This should connect to your AWS account, install a Ubuntu 14.04 image, run the provisioning script (bootstrap.sh) to install web server software including nginx, MariaDB (MySql) and php, create MySql database and user, download and install WordPress (if you opted for it in the config), and show you the IP address (public URL) of the new AWS instance
-* Load that IP address in your browser to see your new WordPress site (add the directory name if you opted for a subdirectory) :)
+* Load that IP address in your browser to see your new WordPress site (add the directory name if you opted for a subdirectory in your config) :)
 * You can run `vagrant ssh` to ssh into your new instance
 * Use the AWS EC2 console to see your instance details and do AWS stuff (it's also fun to watch and see the instance getting made/initialised/destroyed)
-* If you don't get quite what you want, just run `vagrant destroy -f` to shut down and remove the instance, then modify the options/files and run `vagrant up` again.  This is one of the neat things about running VMs this way; it's quick and easy to make changes and start again
+* If you don't get quite what you want, just run `vagrant destroy -f` to shut down and remove the instance, then modify the options files and run `vagrant up` again.  This is one of the neat things about running VMs this way; it's quick and easy to make changes and start again
 
 Extending
 =========
