@@ -15,7 +15,7 @@ local:
     host: "localhost"
 
 production:
-  # add your AWS IP or DNS below
+  # add your AWS IP or DNS or Dynamic DNS name (however you access your site) below
   vhost: "http://XXX.ap-southeast-2.compute.amazonaws.com"
   wordpress_path: "/var/www/html" # use an absolute path here
 

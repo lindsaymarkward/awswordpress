@@ -93,5 +93,5 @@ else
   echo 'Not installing WordPress'
 fi
 
-# give normal user permission to the base directory created by Vagrant synced folder and below (WordPress)
-sudo chown -R ubuntu:ubuntu $BASE_WEB_DIRECTORY
+# give web server user ownership of the base WordPress/web directory
+sudo chown -R www-data:www-data $BASE_WEB_DIRECTORY
