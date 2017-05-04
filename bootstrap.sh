@@ -93,5 +93,12 @@ else
   echo 'Not installing WordPress'
 fi
 
-# give web server user ownership of the base WordPress/web directory
+# set permissions and ownership (for web server user, group writable) of the WordPress/web directory
 sudo chown -R www-data:www-data $BASE_WEB_DIRECTORY
+sudo find $BASE_WEB_DIRECTORY -type f -exec chmod 664 {} + -o -type d -exec chmod 775 {} +
+# add ubuntu user to www-data group
+sudo usermod -a -G www-data ubuntu
+
+# add public IP to bash command prompt
+IP="$(wget -qO- http://instance-data/latest/meta-data/public-ipv4)"
+echo "PS1=\"\[\033[01;31m\]\u@\"$IP\" \w $\[\033[00m\] \";" >> /home/ubuntu/bashrc

@@ -3,7 +3,7 @@
 # load variables from config
 source /vagrant/config.sh
 
-# get public IP of AWS instance
+# get public IP of AWS instance (repeated here so this script can stand alone)
 IP="$(wget -qO- http://instance-data/latest/meta-data/public-ipv4)"
 if [[ ! -z "$WP_DIRECTORY" ]]; then
 	URL=$IP/$WP_DIRECTORY

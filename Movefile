@@ -30,6 +30,7 @@ production:
       # add your AWS IP or DNS below (same as above but with NO http://)
       host: "XXX.ap-southeast-2.compute.amazonaws.com"
       user: "ubuntu"
+      rsync_options: "--chmod=ugo=rwX" # Additional rsync options to preserve permissions (ignore any errors about this)
 
   exclude:
     - ".git/"
