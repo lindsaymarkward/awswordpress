@@ -101,4 +101,4 @@ sudo usermod -a -G www-data ubuntu
 
 # add public IP to bash command prompt
 IP="$(wget -qO- http://instance-data/latest/meta-data/public-ipv4)"
-echo "PS1=\"\[\033[01;31m\]\u@\"$IP\" \w $\[\033[00m\] \";" >> /home/ubuntu/bashrc
+echo "PS1=\"\[\033[01;31m\]\u@\"$IP\" \w $\[\033[00m\] \";" >> /home/ubuntu/.bashrc
