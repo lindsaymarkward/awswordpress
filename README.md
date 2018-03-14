@@ -1,7 +1,7 @@
-Vagrant for running WordPress on AWS
+# Vagrant for running WordPress on AWS
 
-This Vagrantfile and provisioning script sets up a web server running a current version of WordPress on AWS.  
-The assumption is that you'll replace the site with one that you develop locally (e.g. using wordmove).
+This Vagrantfile and provisioning script set up an AWS EC2 instance as a web server running a current version of WordPress.  
+The use-case is that you will replace the site with one that you develop locally (e.g. using Wordmove).
 
 Instructions
 ============
@@ -31,8 +31,20 @@ You will need to setup and know your (appropriate) AWS security credentials:
 * Use the AWS EC2 console to see your instance details and do AWS stuff (it's also fun to watch and see the instance getting made/initialised/destroyed)
 * If you don't get quite what you want, just run `vagrant destroy -f` to shut down and remove the instance, then modify the config files and run `vagrant up` again.  This is one of the neat things about running VMs this way; it's quick and easy to make changes and start again
 
+Passwordless SSH
+----------------
+
+You will want to be able to SSH into your new AWS EC2 instance from your local VM (e.g. VVV), so we're going to copy a public key from local to remote. (There are other ways to do this using `ssh-copy-id` but this way seems easiest.)
+
+* `vagrant ssh` into your local VM
+* Run `ssh-keygen` to create a new public/private key pair (accept the defaults and leave a blank passphrase)
+* Run `cat ~/.ssh/id_rsa.pub` to display your public key on the screen. Select and copy this, making sure you don't get any extra whitespace or text.
+* In your remote VM (awswordpress) folder, run `vagrant ssh` (so you're connected to your AWS machine)
+* Edit the file `~/.ssh/authorized_keys` and carefully paste the key you copied (each key is a single line)
+* Now try to connect from your local VM (i.e. from VVV, not your main host OS) with the command `ssh ubuntu@1.2.3.4` (where 1.2.3.4 is the public IP of your AWS machine). If this works, then Wordmove will be able to do its magic... If it doesn't work, the most likely cause is that your key was not copied-and-pasted perfectly (e.g. you have a line break that isn't in the original).
+
 Wordmove
-========
+--------
 
 Wordmove is a very nice (Ruby gem) tool for copying WordPress sites between different environments:  https://github.com/welaika/wordmove  
 You install Wordmove in your _local_ environment, not the remote (or your main host OS), so this Vagrant setup does not need to install it in your remote AWS site, but it does provide a starter `movefile.yaml`, with values that are nearly ready to go.  
