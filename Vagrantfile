@@ -20,6 +20,7 @@ Vagrant.configure("2") do |config|
   config.vm.box = "dummy"
 
   config.vm.provider 'aws' do |aws, override|
+    override.nfs.functional = false
     # Use private AWS variables loaded from YAML file
     aws.access_key_id = aws_config["access_key_id"]
     aws.secret_access_key = aws_config["secret_access_key"]
