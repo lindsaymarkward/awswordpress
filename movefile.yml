@@ -1,12 +1,15 @@
-# This is a template Movefile for wordmove (https://github.com/welaika/wordmove)
+# This is a template movefile.yml for wordmove (https://github.com/welaika/wordmove)
 # Put it in your local Vagrant environment (e.g. VVV), in the root folder of the WordPress install you want to push/pull
 # Some options have been set to match VVV as local and AWS as production, but you will need to modify them or others to get it to work for your situation
 # You must at least change anything with XXX in it
 
+global:
+    sql_adapter: default
+
 local:
   # put your local development site URL below, with NO trailing /
-  vhost: "http://local.wordpress.dev"
-  wordpress_path: "/vagrant/www/XXX/htdocs" # use an absolute path here
+  vhost: "http://local.wordpress.test"
+  wordpress_path: "/vagrant/www/wordpress-default/htdocs" # use an absolute path here
 
   database:
     name: "wordpress_default"
@@ -28,21 +31,22 @@ production:
 
     ssh:
       # add your AWS IP or DNS below (same as above but with NO http://)
+      # you will notice there's no "password". You must first setup passwordless SSH access.
       host: "XXX.ap-southeast-2.compute.amazonaws.com"
       user: "ubuntu"
       rsync_options: "--chmod=ugo=rwX" # Additional rsync options to preserve permissions (ignore any errors about this)
 
   exclude:
-    - ".git/"
-    - ".gitignore"
-    - ".sass-cache/"
-    - "node_modules/"
-    - "bin/"
-    - "tmp/*"
-    - "Gemfile*"
-    - "Movefile"
-    - "wp-config.php"
-    - "wp-content/*.sql"
+    - .git/
+    - .gitignore
+    - .sass-cache/
+    - node_modules/
+    - bin/
+    - tmp/*
+    - Gemfile*
+    - movefile.yml
+    - wp-config.php
+    - wp-content/*.sql
 
 # staging: # multiple environments can be specified; copy the values from production and adjust as needed
 #   [...]
