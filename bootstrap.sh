@@ -28,6 +28,7 @@ apt_package_install_list=(
   php7.1-dev
   php7.1-zip
   php7.1-mysql
+  php7.1-sqlite3
   php-xml
   php-pear
   php-imagick

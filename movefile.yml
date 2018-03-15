@@ -9,10 +9,10 @@ global:
 local:
   # put your local development site URL below, with NO trailing /
   vhost: "http://local.wordpress.test"
-  wordpress_path: "/vagrant/www/wordpress-default/htdocs" # use an absolute path here
+  wordpress_path: "/vagrant/www/wordpress-default/public_html" # use an absolute path here
 
   database:
-    name: "wordpress_default"
+    name: "wordpressdefault"
     user: "root"
     password: "root"
     host: "localhost"
@@ -29,12 +29,12 @@ production:
     password: "wpdbuser"
     host: "localhost"
 
-    ssh:
-      # add your AWS IP or DNS below (same as above but with NO http://)
-      # you will notice there's no "password". You must first setup passwordless SSH access.
-      host: "XXX.ap-southeast-2.compute.amazonaws.com"
-      user: "ubuntu"
-      rsync_options: "--chmod=ugo=rwX" # Additional rsync options to preserve permissions (ignore any errors about this)
+  ssh:
+    # add your AWS IP or DNS below (same as above but with NO http://)
+    # you will notice there's no "password". You must first setup passwordless SSH access.
+    host: "XXX.ap-southeast-2.compute.amazonaws.com"
+    user: "ubuntu"
+    rsync_options: "--chmod=ugo=rwX" # Additional rsync options to preserve permissions (ignore any errors about this)
 
   exclude:
     - .git/

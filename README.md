@@ -19,7 +19,7 @@ You will need to setup and know your (appropriate) AWS security credentials:
 * You might want to make sure you can connect to AWS in the shell (command line) before continuing...
 
 **Local (Terminal):**
-* Install AWS Vagrant plugin: `vagrant plugin install aws-vagrant plugin`
+* Install AWS Vagrant plugin: `vagrant plugin install aws-vagrant`
 * Download the dummy box: `vagrant box add dummy https://github.com/mitchellh/vagrant-aws/raw/master/dummy.box`
 * **Windows:** There may be some other setup required for Windows, including making sure `rsync` is available
 * Copy or rename the file `private-sample.yml` to `private.yml`
