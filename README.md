@@ -7,7 +7,9 @@ Instructions
 ============
 
 **AWS:**  
-AWS have an "AWS Educate Starter Account" that does not require a credit card. Or you can use a standard account and apply for a student deal: https://aws.amazon.com/education/awseducate  
+AWS have an "AWS Educate Starter Account" that does not require a credit card. Or you can use a standard account and apply for a student deal: https://aws.amazon.com/education/awseducate   
+(If you do use the Educate starter account, please make sure you *do not click "Close Lab"* or you will lose your account.)  
+*Note:* If you use this Educate account, you will need to change some settings in the `Vagrantfile` due to account limitations. See the comments in that file.
 
 (Full details are outside the scope of these instructions)  
 You will need to setup and know your (appropriate) AWS security credentials:  
