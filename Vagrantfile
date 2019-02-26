@@ -31,10 +31,11 @@ Vagrant.configure("2") do |config|
     # Use whatever instance type, ami, and region you like, just make sure they can all work together
     aws.instance_type = 't2.micro'
     aws.region = 'ap-southeast-2'
-    aws.ami = 'ami-cdcdcfae'  # trusty (Ubuntu 14.04) hvm:ebs type suitable for free tier
+    aws.ami = 'ami-0db7df036ebf22fae'  # trusty (Ubuntu 14.04) hvm:ebs type suitable for free tier
     # (found using http://cloud-images.ubuntu.com/locator/ec2/)
 
-    # Using AWS Educate Starter account? Use the following settings instead of those above
+    # Using AWS Educate Starter account?
+    # Use the following settings instead of those above
     # aws.ami = 'ami-ff6d0b87' # This is Ubuntu 14.04 trusty for us-west-2
     # aws.region = 'us-west-2'
 
@@ -51,7 +52,7 @@ Vagrant.configure("2") do |config|
   end
 
   # The following line might be needed if you have problems with Vagrant not using rsync (e.g. using smb)
-  # config.vm.allowed_synced_folder_types = [:rsync]
+  config.vm.allowed_synced_folder_types = [:rsync]
 
   # Share an additional folder to the guest VM. The first argument is the path on the host to the actual folder.
   # The second argument is the path on the guest to mount the folder.
