@@ -68,4 +68,4 @@ Acknowledgements
 ================
 
 * I have created this based on various tutorials and samples on the web, as mentioned in the files. Thank you to those who have explained their work for us to benefit from :)
-* Feel free to fork this and do what you want with it. Send me a pull request if you can improve/fi something. If you do publish your own version online be sure that you don't include your private AWS/WordPress credentials.
+* Feel free to fork this and do what you want with it. Send me a pull request if you can improve/fix something. If you do publish your own version online be sure that you don't include your private AWS/WordPress credentials.
